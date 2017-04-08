@@ -55,6 +55,26 @@ button.noActive:hover {
 	border-radius: 14px;
 	cursor: pointer;
 }
+button#start {
+	float: left;
+	margin: 15px 80px 15px 80px;
+	width: 240px;
+	height: 70px;
+	border-radius: 14px;
+	border: none;
+	outline: none;
+	background-color: #FFFFFF;
+	font-size: 30px;
+	color: #fb5c2a;
+}
+button#start:hover {
+	margin: 10px 70px 10px 70px;
+	width: 260px;
+	height: 80px;
+	border-radius: 18px;
+	cursor: pointer;
+	font-size: 34px;
+}
 #frame {
 	margin: auto;
 	width: 700px;
@@ -62,18 +82,20 @@ button.noActive:hover {
 }
 .field {
 	float: left;
-	margin: 2px;
+	margin: 4px;
 	width: 62px;
 	height: 62px;
 	background-color: #202020;
-	border: 2px solid #606060;
+	border: none;
+	outline: none;
 	border-radius: 6px;
-	color: #FFFFFF;
+	color: #606060;
+	text-align: center;
+	font-size: 30px;
 }
 .field:hover {
-	margin: 0px;
-	width: 66px;
-	height: 66px;
-	background-color: #606060;
+	margin: 1px;
+	width: 68px;
+	height: 68px;
 	cursor: pointer;
 }

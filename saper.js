@@ -1,24 +1,52 @@
-function start(){
+window.onload = function(){
+	disabled();
+}
+function disabled(){
 	for(var i = 0; i < 100; i++){
-		document.getElementsByClassName("field")[i].innerHTML = '';
-		document.getElementsByClassName("field")[i].style.color = "white";
-	}
-	var count;
-	if(bt0.className == "active"){
-		count = 10;
-		random(count);
-	}
-	else if(bt1.className == "active"){
-		count = 20;
-		random(count);
-	}
-	else{
-		count = 40;
-		random(count);
+		document.getElementsByClassName("field")[i].disabled = true;
 	}
 }
+function start(){
+	if(document.getElementById("start").innerHTML == "Rozpocznij"){
+		for(var i = 0; i < 100; i++){
+			document.getElementsByClassName("field")[i].disabled = false;
+			document.getElementsByClassName("field")[i].innerHTML = '';
+			document.getElementsByClassName("field")[i].style.color = "#202020";
+			document.getElementsByClassName("field")[i].style.backgroundColor = "#202020";
+		}
+		var count;
+		if(bt0.className == "active"){
+			count = 10;
+			random(count);
+		}
+		else if(bt1.className == "active"){
+			count = 20;
+			random(count);
+		}
+		else{
+			count = 30;
+			random(count);
+		}
+		document.getElementById("start").innerHTML = "Poddaj się";
+	}
+	else{
+		for(var i = 0; i < 100; i++){
+			document.getElementsByClassName("field")[i].style.backgroundColor = "#DDDDDD";
+			if(blackboard[i] == 0){
+				document.getElementsByClassName("field")[i].innerHTML = '';
+			}
+			else{
+				if(blackboard[i] == 9){
+					document.getElementsByClassName("field")[i].style.color = "red";
+				}
+				document.getElementsByClassName("field")[i].innerHTML = blackboard[i];
+			}
+		}
+		document.getElementById("start").innerHTML = "Rozpocznij";
+	}
+}
+var blackboard = new Array(100);
 function random(count){
-	var blackboard = new Array(100);
 	for(var i = 0; i < 100; i ++){
 		blackboard[i] = 0;
 	}
@@ -169,14 +197,6 @@ function random(count){
 			}
 		}
 	}
-	for(var i = 0; i < 100; i++){
-		if(blackboard[i] != 0){
-			document.getElementsByClassName("field")[i].innerHTML = blackboard[i];
-			if(blackboard[i] == 9){
-				document.getElementsByClassName("field")[i].style.color = "red";
-			}
-		}
-	}
 }
 function change(number){
 	if(number == 0){
@@ -193,5 +213,17 @@ function change(number){
 		bt2.className = "active";
 		bt0.className = "noActive";
 		bt1.className = "noActive";
+	}
+}
+function discover(number){
+	document.getElementsByClassName("field")[number].style.backgroundColor = "#DDDDDD";
+	if(blackboard[number] == 0){
+		document.getElementsByClassName("field")[number].innerHTML = '';
+	}
+	else{
+		if(blackboard[number] == 9){
+			document.getElementsByClassName("field")[number].style.color = "red";
+		}
+		document.getElementsByClassName("field")[number].innerHTML = blackboard[number];
 	}
 }
